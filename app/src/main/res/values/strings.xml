@@ -28,7 +28,7 @@
 
     <string-array name="sandwich_details">
         <item>{\"name\":{\"mainName\":\"Ham and cheese
-            sandwich\",\"alsoKnownAs\":[\"\"]},\"placeOfOrigin\":\"\",\"description\":\"A ham and cheese
+            sandwich\",\"alsoKnownAs\":[]},\"placeOfOrigin\":\"\",\"description\":\"A ham and cheese
             sandwich is a common type of sandwich. It is made by putting cheese and sliced ham
             between two slices of bread. The bread is sometimes buttered and/or toasted. Vegetables
             like lettuce, tomato, onion or pickle slices can also be included. Various kinds of
@@ -110,7 +110,7 @@
             (generally with accompaniments), or as a sandwich or wrap. Shawarma is usually eaten
             with tabbouleh, fattoush, taboon bread, tomato, and cucumber. Toppings include tahini,
             hummus, pickled turnips, and
-            amba.\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Shawarmafood.jpg/800px-Shawarmafood.jpg\",\"ingredients\":[\"Shawarma
+            amba.\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Shawarma_%282223426004%29.jpg/640px-Shawarma_%282223426004%29.jpg\",\"ingredients\":[\"Shawarma
             meat (lamb, chicken, turkey, beef) or shawarma falafel\",\"Pita or wrap
             bread\",\"Chopped or shredded vegetables\",\"Pickles\",\"Assorted condiments\"]}
         </item>

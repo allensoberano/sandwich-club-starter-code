@@ -3,6 +3,8 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +23,8 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        ImageView ingredientsIv = findViewById(R.id.image_iv);
+        ImageView sandwichImageIV = findViewById(R.id.image_iv);
+
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -47,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
-                .into(ingredientsIv);
+                .into(sandwichImageIV);
 
         setTitle(sandwich.getMainName());
     }
@@ -60,13 +63,43 @@ public class DetailActivity extends AppCompatActivity {
     private void populateUI(Sandwich sandwich) {
 
         TextView mAlsoKnownTV = (TextView) findViewById(R.id.also_known_tv);
+        TextView mAKAlabel = (TextView) findViewById(R.id.also_known_label);
+
         TextView mIngredientsTV = (TextView) findViewById(R.id.ingredients_tv);
+        TextView mIngLabel = (TextView) findViewById(R.id.ingredients_label);
+
         TextView mOriginTV = (TextView) findViewById(R.id.origin_tv);
+        TextView mOrginLabel = (TextView) findViewById(R.id.place_of_origin_label);
+
         TextView mDescriptionTV = (TextView) findViewById(R.id.description_tv);
+        TextView mDescLabel  = (TextView) findViewById(R.id.description_label);
 
-        mAlsoKnownTV.setText((CharSequence) sandwich.getAlsoKnownAs());
-        mOriginTV.setText(sandwich.getPlaceOfOrigin());
 
+        //** Hide labels when null else show Label and Text
+        //using TextUtils.join because String.join needed api26
+        if (sandwich.getAlsoKnownAs() != null) {
+            mAlsoKnownTV.setText(TextUtils.join(", ", sandwich.getAlsoKnownAs()));
+        } else {
+            mAKAlabel.setVisibility(View.GONE);
+        }
+
+        if (sandwich.getIngredients() != null) {
+            mIngredientsTV.setText(TextUtils.join(", ", sandwich.getIngredients()));
+        } else {
+            mIngLabel.setVisibility(View.GONE);
+        }
+
+        if (sandwich.getPlaceOfOrigin().isEmpty()) {
+            mOrginLabel.setVisibility(View.GONE);
+        } else {
+            mOriginTV.setText(sandwich.getPlaceOfOrigin());
+        }
+
+        if (sandwich.getDescription().isEmpty()) {
+            mDescLabel.setVisibility(View.GONE);
+        } else {
+            mDescriptionTV.setText(sandwich.getDescription());
+        }
 
 
     }

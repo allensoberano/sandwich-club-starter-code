@@ -37,8 +37,8 @@ public class JsonUtils {
             sandwich.setImage(imageLink);
 
             //Converts to List<string> before setting
-            sandwich.setAlsoKnownAs(convertJSONArray(alsoKnownAs));
-            sandwich.setIngredients(convertJSONArray(ingredients));
+            sandwich.setAlsoKnownAs(convertJSONArrayToString(alsoKnownAs));
+            sandwich.setIngredients(convertJSONArrayToString(ingredients));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -49,6 +49,22 @@ public class JsonUtils {
 
     //Converts JSONArray to List<String>
     private static List<String> convertJSONArray(JSONArray jArr) throws JSONException {
+        List<String> arrList = null;
+
+        if (jArr.length() > 0){
+            arrList = new ArrayList<>();
+            for(int i=0; i<jArr.length(); i++) {
+                arrList.add(jArr.getString(i));
+            }
+
+            return arrList;
+        }
+
+        return arrList;
+    }
+
+    //Converts JSONArray to List<String>
+    private static List<String> convertJSONArrayToString (JSONArray jArr) throws JSONException {
         List<String> arrList = null;
 
         if (jArr.length() > 0){
