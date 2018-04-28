@@ -77,6 +77,7 @@ public class DetailActivity extends AppCompatActivity {
 
         //** Hide labels when null else show Label and Text
         //using TextUtils.join because String.join needed api26
+
         if (sandwich.getAlsoKnownAs() != null) {
             mAlsoKnownTV.setText(TextUtils.join(", ", sandwich.getAlsoKnownAs()));
         } else {
